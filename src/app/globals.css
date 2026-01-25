@@ -1,0 +1,339 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  
+  /* Add custom color utilities */
+  --color-lime: var(--lime);
+  --color-lime-dark: var(--lime-dark);
+  --color-forest: var(--forest);
+  --color-forest-light: var(--forest-light);
+  --color-forest-dark: var(--forest-dark);
+  --color-cream: var(--cream);
+  --color-sage: var(--sage);
+}
+
+:root {
+    /* Marqo Theme - Forest Green + Lime Accent */
+    --background: 0 0% 100%;
+    --foreground: 160 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 160 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 30% 15%;
+
+    /* Primary: Dark Forest Green */
+    --primary: 160 42% 16%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Light sage */
+    --secondary: 140 20% 96%;
+    --secondary-foreground: 160 42% 16%;
+
+    --muted: 140 15% 95%;
+    --muted-foreground: 160 10% 45%;
+
+    /* Accent: Lime/Chartreuse Green */
+    --accent: 90 70% 65%;
+    --accent-foreground: 160 42% 16%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 140 15% 90%;
+    --input: 140 15% 90%;
+    --ring: 90 70% 65%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --lime: 90 70% 65%;
+    --lime-dark: 90 60% 50%;
+    --forest: 160 42% 16%;
+    --forest-light: 160 35% 25%;
+    --forest-dark: 160 35% 12%;
+    --cream: 45 30% 97%;
+    --sage: 140 20% 92%;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 160 30% 15%;
+    --sidebar-primary: 160 42% 16%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 140 20% 96%;
+    --sidebar-accent-foreground: 160 42% 16%;
+    --sidebar-border: 140 15% 90%;
+    --sidebar-ring: 90 70% 65%;
+  }
+
+  .dark {
+    --background: 160 42% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 160 42% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 160 42% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 90 70% 65%;
+    --primary-foreground: 160 42% 16%;
+
+    --secondary: 160 30% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 160 25% 20%;
+    --muted-foreground: 140 15% 65%;
+
+    --accent: 90 70% 65%;
+    --accent-foreground: 160 42% 16%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 160 25% 22%;
+    --input: 160 25% 22%;
+    --ring: 90 70% 65%;
+
+    --sidebar-background: 160 42% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 90 70% 65%;
+    --sidebar-primary-foreground: 160 42% 16%;
+    --sidebar-accent: 160 25% 18%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 160 25% 22%;
+    --sidebar-ring: 90 70% 65%;
+
+    /* Dark mode custom tokens */
+    --forest-dark: 160 42% 8%;
+    --forest-light: 160 35% 25%;
+  }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-sans {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Custom color utilities - Background */
+  .bg-lime {
+    background-color: hsl(90 70% 65%);
+  }
+
+  .bg-lime-dark {
+    background-color: hsl(90 60% 50%);
+  }
+
+  .bg-forest {
+    background-color: hsl(160 42% 16%);
+  }
+
+  .bg-forest-light {
+    background-color: hsl(160 35% 25%);
+  }
+
+  .bg-forest-dark {
+    background-color: hsl(160 35% 12%);
+  }
+
+  .bg-forest-dark\/50 {
+    background-color: hsl(160 35% 12% / 0.5);
+  }
+
+  .bg-forest-dark\/80 {
+    background-color: hsl(160 35% 12% / 0.8);
+  }
+
+  .bg-cream {
+    background-color: hsl(45 30% 97%);
+  }
+
+  .bg-sage {
+    background-color: hsl(140 20% 92%);
+  }
+
+  .bg-sage\/30 {
+    background-color: hsl(140 20% 92% / 0.3);
+  }
+
+  .bg-sage\/50 {
+    background-color: hsl(140 20% 92% / 0.5);
+  }
+
+  /* Custom color utilities - Text */
+  .text-lime {
+    color: hsl(90 70% 65%);
+  }
+
+  .text-lime-dark {
+    color: hsl(90 60% 50%);
+  }
+
+  .text-forest {
+    color: hsl(160 42% 16%);
+  }
+
+  .text-forest-light {
+    color: hsl(160 35% 25%);
+  }
+
+  .text-forest-dark {
+    color: hsl(160 35% 12%);
+  }
+
+  /* Custom color utilities - Border */
+  .border-lime {
+    border-color: hsl(90 70% 65%);
+  }
+
+  .border-forest {
+    border-color: hsl(160 42% 16%);
+  }
+
+  /* Gradient backgrounds */
+  .bg-hero-gradient {
+    background: linear-gradient(135deg, hsl(160 35% 12%) 0%, hsl(160 42% 16%) 50%, hsl(160 35% 25%) 100%);
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(160 35% 12%) 0%, hsl(160 42% 16%) 50%, hsl(160 35% 25%) 100%);
+  }
+
+  .bg-lime-gradient {
+    background: linear-gradient(135deg, hsl(90 70% 65%) 0%, hsl(100 75% 55%) 100%);
+  }
+
+  .lime-gradient {
+    background: linear-gradient(135deg, hsl(90 70% 65%) 0%, hsl(100 75% 55%) 100%);
+  }
+
+  /* Lime background with opacity */
+  .bg-lime\/20 {
+    background-color: hsl(90 70% 65% / 0.2);
+  }
+
+  .bg-lime\/60 {
+    background-color: hsl(90 70% 65% / 0.6);
+  }
+
+  .bg-lime\/90 {
+    background-color: hsl(90 70% 65% / 0.9);
+  }
+
+  /* Shadow utilities */
+  .glow-accent {
+    box-shadow: 0 0 60px -15px hsl(90 70% 65% / 0.4);
+  }
+
+  .card-shadow {
+    box-shadow: 0 4px 24px -4px hsl(160 42% 16% / 0.08);
+  }
+
+  .elevated-shadow {
+    box-shadow: 0 12px 48px -8px hsl(160 42% 16% / 0.15);
+  }
+
+  .shadow-elevated {
+    box-shadow: 0 12px 48px -8px hsl(160 42% 16% / 0.15);
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(90 70% 65%) 0%, hsl(100 75% 55%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Floating animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes float-delayed {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float-delayed 4s ease-in-out infinite 1s;
+  }
+
+  .animate-float-slow {
+    animation: float 6s ease-in-out infinite 0.5s;
+  }
+}
