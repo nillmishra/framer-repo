@@ -2,13 +2,28 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { TrendingUp, BarChart, Linkedin, Instagram, Twitter } from 'lucide-react';
+import { 
+  TrendingUp, 
+  BarChart, 
+  Plane,
+  Building2,
+  Train,
+  MapPin,
+  Sparkles,
+  Zap,
+  Target,
+  Shield,
+  Clock,
+  CreditCard,
+  Globe,
+  Wallet
+} from 'lucide-react';
 import pixelPerfectMedia from '@/src/app/assets/pixel-perfect-media.jpg';
 import Image from 'next/image';
 
 const Features = () => {
   return (
-    <section className="py-16 lg:py-24 bg-background">
+    <section className="py-16 lg:py-24 bg-gradient-to-b from-white to-blue-50/30">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 mb-12">
@@ -18,10 +33,15 @@ const Features = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground leading-tight">
-              Your Marketing Department Just
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-gray-900 leading-tight">
+              Everything You Need For
               <br />
-              <span className="text-lime-dark">Activated Autopilot</span>
+              <span 
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: 'linear-gradient(135deg, #2563eb 0%, #0891b2 100%)' }}
+              >
+                Perfect Travel Planning
+              </span>
             </h2>
           </motion.div>
 
@@ -32,166 +52,372 @@ const Features = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col justify-center"
           >
-            <p className="text-muted-foreground text-lg mb-6">
-              Spend less time managing marketing, more time improving your product.
+            <p className="text-gray-600 text-lg mb-6">
+              Compare, book, and save on flights, hotels, trains, and tour packages all in one place.
             </p>
             <div className="flex gap-4">
-              <Button variant="lime" size="xl" className="rounded-full bg-green-500 py-3 px-5">
-            Join Waitlist
-          </Button>
-              <Button variant="nav" size="xl" className="rounded-full border text-black border-black py-3 px-6 hover:text-black/80">
-            Learn more
-          </Button>
+              <Button 
+                size="lg" 
+                className="rounded-full text-white font-semibold border-0 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+                style={{ background: 'linear-gradient(135deg, #2563eb 0%, #0891b2 100%)' }}
+              >
+                <Sparkles className="w-5 h-5 mr-2" />
+                Start Searching
+              </Button>
+              <Button 
+                size="lg"
+                variant="outline" 
+                className="rounded-full font-semibold text-gray-700 border-gray-300 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all duration-300"
+              >
+                Learn more
+              </Button>
             </div>
           </motion.div>
         </div>
 
-        {/* Features Grid - Bento Style */}
+        {/* Features Grid - 3x2 Aligned Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Analytics Card */}
+          
+          {/* Row 1 - Box 1: Price Comparison (Same size as Box 2) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-card rounded-3xl p-6 shadow-card border border-border row-span-2"
+            className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 transition-all duration-500 group"
           >
-            <h3 className="text-lg font-semibold text-lime-dark mb-2">Analytics that matter</h3>
-            <p className="text-muted-foreground text-sm mb-6">
-              Deploy your campaigns and optimize them with top tier revolutionary AI technology
+            <div className="flex items-center gap-2 mb-3">
+              <div 
+                className="w-10 h-10 rounded-xl flex items-center justify-center shadow-md"
+                style={{ background: 'linear-gradient(135deg, #2563eb 0%, #0891b2 100%)' }}
+              >
+                <BarChart className="w-5 h-5 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900">Price Comparison</h3>
+            </div>
+            <p className="text-gray-500 text-sm mb-5">
+              Compare prices from 500+ airlines and travel sites to find the best deals instantly
             </p>
             
             {/* Chart Visualization */}
-            <div className="relative h-48 mt-auto">
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-center gap-2">
-                {[30, 45, 35, 60, 50, 75, 65, 80, 70, 90, 85, 95].map((height, i) => (
-                  <div
+            <div className="relative h-32">
+              <div className="absolute inset-x-0 bottom-0 flex items-end justify-center gap-1.5">
+                {[35, 50, 40, 65, 55, 80, 70, 90, 75, 95].map((height, i) => (
+                  <motion.div
                     key={i}
-                    className="w-4 lg:w-5 rounded-t-md bg-gradient-to-t from-lime/60 to-lime"
-                    style={{ height: `${height}%` }}
+                    initial={{ height: 0 }}
+                    whileInView={{ height: `${height}%` }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.05 }}
+                    className="w-5 rounded-t-md transition-all duration-300 group-hover:opacity-90"
+                    style={{ background: `linear-gradient(180deg, #2563eb ${100 - height}%, #0891b2 100%)` }}
                   />
                 ))}
               </div>
-              <div className="absolute top-4 left-4 bg-lime/90 text-forest text-xs font-semibold px-3 py-1 rounded-full">
-                97% accuracy
-              </div>
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.8 }}
+                className="absolute top-0 left-0 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg"
+                style={{ background: 'linear-gradient(135deg, #2563eb 0%, #0891b2 100%)' }}
+              >
+                Save up to 40%
+              </motion.div>
             </div>
           </motion.div>
 
-          {/* Integrations Card */}
+          {/* Row 1 - Box 2: Travel Services */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-card rounded-3xl p-6 shadow-card border border-border"
+            className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 transition-all duration-500"
           >
-            <div className="grid grid-cols-4 gap-3 mb-6">
-              {/* Social Icons */}
-              <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
-                <svg className="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm4.3 8.3c.1.1.2.3.2.5 0 3.5-2.7 7.6-7.6 7.6-1.5 0-2.9-.4-4.1-1.2.2 0 .4.1.6.1 1.2 0 2.4-.4 3.3-1.1-1.1 0-2.1-.8-2.4-1.8.2 0 .3.1.5.1.2 0 .5 0 .7-.1-1.2-.2-2.1-1.3-2.1-2.5v-.1c.4.2.8.3 1.2.3-.7-.5-1.2-1.3-1.2-2.2 0-.5.1-.9.4-1.3 1.3 1.6 3.3 2.6 5.5 2.7 0-.2-.1-.4-.1-.6 0-1.5 1.2-2.7 2.7-2.7.8 0 1.5.3 2 .9.6-.1 1.2-.3 1.7-.6-.2.6-.6 1.1-1.2 1.5.5-.1 1-.2 1.5-.4-.3.5-.8.9-1.3 1.3z"/>
-                </svg>
-              </div>
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
-                </svg>
-              </div>
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl flex items-center justify-center">
-                <Instagram className="w-6 h-6 text-pink-600" />
-              </div>
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                <Linkedin className="w-6 h-6 text-blue-700" />
-              </div>
+            <div className="grid grid-cols-4 gap-2 mb-4">
+              {[
+                { icon: Plane, color: 'bg-blue-50', iconColor: 'text-blue-600' },
+                { icon: Building2, color: 'bg-cyan-50', iconColor: 'text-cyan-600' },
+                { icon: Train, color: 'bg-teal-50', iconColor: 'text-teal-600' },
+                { icon: MapPin, color: 'bg-indigo-50', iconColor: 'text-indigo-600' },
+              ].map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div 
+                    key={i}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className={`w-12 h-12 ${item.color} rounded-xl flex items-center justify-center cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md`}
+                  >
+                    <Icon className={`w-6 h-6 ${item.iconColor}`} />
+                  </motion.div>
+                );
+              })}
             </div>
-            <div className="grid grid-cols-4 gap-3 mb-6">
-              <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                </svg>
-              </div>
-              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
-                <Twitter className="w-6 h-6 text-gray-900" />
-              </div>
+            <div className="grid grid-cols-4 gap-2 mb-5">
+              {[
+                { icon: Shield, color: 'bg-emerald-50', iconColor: 'text-emerald-600' },
+                { icon: CreditCard, color: 'bg-purple-50', iconColor: 'text-purple-600' },
+                { icon: Globe, color: 'bg-orange-50', iconColor: 'text-orange-600' },
+                { icon: Wallet, color: 'bg-pink-50', iconColor: 'text-pink-600' },
+              ].map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div 
+                    key={i}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className={`w-12 h-12 ${item.color} rounded-xl flex items-center justify-center cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md`}
+                  >
+                    <Icon className={`w-6 h-6 ${item.iconColor}`} />
+                  </motion.div>
+                );
+              })}
             </div>
-            <h3 className="text-lg font-semibold text-lime-dark mb-2">Seamless Integrations</h3>
-            <p className="text-muted-foreground text-sm">
-              A solution that integrates to all your marketing channels
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">All Travel Services</h3>
+            <p className="text-gray-500 text-sm">
+              Flights, hotels, trains, packages — everything in one seamless platform
             </p>
           </motion.div>
 
-          {/* Precise Forecast Card */}
+          {/* Row 1 - Box 3: Smart Alerts */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-primary rounded-3xl p-6 shadow-card row-span-2 relative overflow-hidden"
+            className="rounded-3xl p-6 shadow-xl relative overflow-hidden hover:-translate-y-2 transition-all duration-500 group"
+            style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%)' }}
           >
-            <h3 className="text-lg font-semibold text-lime mb-2">Precise forecast</h3>
-            <p className="text-primary-foreground/70 text-sm mb-6">
-              Get precise data previsions for all your campaigns to adapt your approach
-            </p>
+            {/* Background decoration */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/20 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-500/20 rounded-full blur-2xl" />
             
-            {/* Forecast Line Chart */}
-            <div className="relative h-48">
-              <svg className="w-full h-full" viewBox="0 0 200 100">
-                <path
-                  d="M0 80 Q 30 70, 50 60 T 100 40 T 150 30 T 200 10"
-                  fill="none"
-                  stroke="hsl(90, 70%, 65%)"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                />
-                <circle cx="180" cy="15" r="6" fill="hsl(90, 70%, 65%)" />
-              </svg>
+            {/* Floating plane */}
+            <motion.div
+              className="absolute top-16 right-4 text-white/20"
+              animate={{ y: [0, -10, 0], x: [0, 5, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Plane className="w-10 h-10 rotate-12" />
+            </motion.div>
+            
+            <div className="relative z-10">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-10 h-10 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center">
+                  <Target className="w-5 h-5 text-cyan-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-cyan-300">Smart Price Alerts</h3>
+              </div>
+              <p className="text-white/70 text-sm mb-4">
+                Get notified instantly when prices drop for your dream destinations
+              </p>
+              
+              {/* Price Drop Animation */}
+              <div className="relative h-28">
+                <svg className="w-full h-full" viewBox="0 0 200 80">
+                  <defs>
+                    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#67e8f9" />
+                      <stop offset="100%" stopColor="#22d3ee" />
+                    </linearGradient>
+                  </defs>
+                  <motion.path
+                    d="M0 60 Q 40 50, 70 45 T 130 30 T 200 10"
+                    fill="none"
+                    stroke="url(#lineGradient)"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.5, ease: "easeInOut" }}
+                  />
+                  <motion.circle 
+                    cx="185" 
+                    cy="12" 
+                    r="5" 
+                    fill="#22d3ee"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 1.5, duration: 0.3 }}
+                    className="animate-pulse"
+                  />
+                </svg>
+                
+                {/* Price Drop Badge */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 1.8 }}
+                  className="absolute top-0 right-0 bg-emerald-500 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg"
+                >
+                  -$127 Drop!
+                </motion.div>
+              </div>
             </div>
           </motion.div>
 
-          {/* Pixel Perfect Media */}
+          {/* Row 2 - Box 4: Best Price Guarantee (NEW - Same size as others) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="bg-card rounded-3xl overflow-hidden shadow-card border border-border"
+            className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 transition-all duration-500"
           >
-            <Image
-              src={pixelPerfectMedia}
-              alt="Pixel Perfect Media"
-              className="w-full h-32 object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-lg font-semibold text-lime-dark mb-2">Pixel Perfect Media</h3>
-              <p className="text-muted-foreground text-sm">
-                Generate engagement with generated user content for every kind of product
-              </p>
+            <div className="flex items-center gap-2 mb-3">
+              <div 
+                className="w-10 h-10 rounded-xl flex items-center justify-center shadow-md"
+                style={{ background: 'linear-gradient(135deg, #059669 0%, #10b981 100%)' }}
+              >
+                <Shield className="w-5 h-5 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900">Best Price Guarantee</h3>
+            </div>
+            <p className="text-gray-500 text-sm mb-5">
+              Find a lower price? We'll refund the difference plus give you a $50 travel credit
+            </p>
+            
+            {/* Guarantee Badge Visual */}
+            <div className="relative">
+              <div 
+                className="rounded-2xl p-4 border border-emerald-200"
+                style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%)' }}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
+                      <TrendingUp className="w-6 h-6 text-emerald-600" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-gray-900">Price Match</p>
+                      <p className="text-xs text-gray-500">Within 24 hours</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-lg font-bold text-emerald-600">100%</p>
+                    <p className="text-xs text-gray-500">Guaranteed</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          {/* One Tool Card */}
+          {/* Row 2 - Box 5: Destination Preview */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="bg-card rounded-3xl p-6 shadow-card border border-border text-center"
+            className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 transition-all duration-500 group"
           >
-            <div className="flex justify-center mb-4">
-              <div className="relative">
-                <div className="w-16 h-16 bg-lime/20 rounded-full flex items-center justify-center">
-                  <BarChart className="w-8 h-8 text-lime" />
+            <div className="relative overflow-hidden h-36">
+              <Image
+                src={pixelPerfectMedia}
+                alt="Popular Destinations"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div 
+                className="absolute inset-0"
+                style={{ background: 'linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent)' }}
+              />
+              <div className="absolute bottom-3 left-4 right-4">
+                <div className="flex items-center gap-2">
+                  <div 
+                    className="w-8 h-8 rounded-lg flex items-center justify-center"
+                    style={{ background: 'linear-gradient(135deg, #2563eb 0%, #0891b2 100%)' }}
+                  >
+                    <MapPin className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold text-sm">Trending Destinations</h3>
+                    <p className="text-white/70 text-xs">50+ curated locations</p>
+                  </div>
                 </div>
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-lime rounded-full" />
-                <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-lime/60 rounded-full" />
               </div>
             </div>
-            <h3 className="text-lg font-semibold text-lime-dark mb-2">One tool fits all</h3>
-            <p className="text-muted-foreground text-sm">
-              Don't rely on endless add-ons, plugins and extensions.
-            </p>
+            <div className="p-4">
+              <div className="flex items-center justify-between">
+                <div className="flex -space-x-2">
+                  {['🇫🇷', '🇯🇵', '🇮🇹', '🇹🇭', '🇬🇷'].map((flag, i) => (
+                    <div 
+                      key={i} 
+                      className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-sm border-2 border-white"
+                    >
+                      {flag}
+                    </div>
+                  ))}
+                </div>
+                <span 
+                  className="text-xs font-semibold px-3 py-1 rounded-full"
+                  style={{ 
+                    background: 'linear-gradient(135deg, #eff6ff 0%, #ecfeff 100%)',
+                    color: '#2563eb'
+                  }}
+                >
+                  Explore All →
+                </span>
+              </div>
+            </div>
           </motion.div>
+
+          {/* Row 2 - Box 6: 24/7 Support */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 transition-all duration-500"
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div className="relative">
+                <div 
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center"
+                  style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #ecfeff 100%)' }}
+                >
+                  <Clock className="w-7 h-7 text-blue-600" />
+                </div>
+                <motion.div 
+                  className="absolute -top-1 -right-1 w-5 h-5 rounded-full shadow-md flex items-center justify-center"
+                  style={{ background: 'linear-gradient(135deg, #2563eb 0%, #0891b2 100%)' }}
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <Zap className="w-3 h-3 text-white" />
+                </motion.div>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">24/7 Travel Support</h3>
+                <p className="text-gray-500 text-sm">Always here for you</p>
+              </div>
+            </div>
+            
+            {/* Support Stats */}
+            <div className="grid grid-cols-3 gap-3">
+              {[
+                { value: '<2min', label: 'Response' },
+                { value: '98%', label: 'Satisfaction' },
+                { value: '24/7', label: 'Available' },
+              ].map((stat, i) => (
+                <div 
+                  key={i} 
+                  className="text-center p-3 rounded-xl"
+                  style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%)' }}
+                >
+                  <p 
+                    className="text-lg font-bold bg-clip-text text-transparent"
+                    style={{ backgroundImage: 'linear-gradient(135deg, #2563eb 0%, #0891b2 100%)' }}
+                  >
+                    {stat.value}
+                  </p>
+                  <p className="text-xs text-gray-500">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>
