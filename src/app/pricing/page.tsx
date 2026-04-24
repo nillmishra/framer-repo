@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Sparkles, Plane, Building2, Train } from 'lucide-react';
-import Header from '@/src/components/shared/Header';
-import Footer from '@/src/components/shared/Footer';
+import { Check, Sparkles, Plane, Building2 } from 'lucide-react';
+import Header from '@/components/shared/Header';
+import Footer from '@/components/shared/Footer';
 
 const plans = [
   {
@@ -227,7 +227,7 @@ const Pricing = () => {
 
                 <div className="mt-8">
                   <p className={`text-sm font-semibold mb-4 ${plan.popular ? 'text-gray-900' : 'text-white'}`}>
-                    What's included:
+                    What&apos;s included:
                   </p>
                   <ul className="space-y-3">
                     {plan.features.map((f) => (
@@ -273,7 +273,7 @@ const Pricing = () => {
                   Need a Custom Travel Solution?
                 </h3>
                 <p className="text-white/60 text-sm">
-                  Managing corporate travel for a large team? Let's create a custom plan for you.
+                  Managing corporate travel for a large team? Let&apos;s create a custom plan for you.
                 </p>
               </div>
             </div>

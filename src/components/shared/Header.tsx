@@ -1,4 +1,3 @@
-// components/shared/Header.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -8,9 +7,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import AuthModal from '@/components/auth/AuthModal';
 
 const navLinks = [
-  { name: 'Flights', href: '/flights' },
-  { name: 'Hotels', href: '/hotels' },
-  { name: 'Deals', href: '/deals' },
+  { name: 'Bus', href: '/search?type=bus' },
+  { name: 'Flights', href: '/search?type=flights' },
+  { name: 'Visas', href: '/search?type=visa' },
   { name: 'Pricing', href: '/pricing' },
   { name: 'Contact', href: '/contact' },
 ];
@@ -45,7 +44,7 @@ const Header = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="fixed top-4 left-1/2 -translate-x-1/2 z-40 w-[calc(100%-2rem)] max-w-6xl"
+        className="fixed top-4 left-1/2 -translate-x-1/2 z-[999] w-[calc(100%-2rem)] max-w-6xl"
       >
         <div 
           className={`

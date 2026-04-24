@@ -5,10 +5,10 @@ import { Button } from '@/components/ui/button';
 import { Sparkles, ArrowRight, Zap, Plane, TrendingDown, Star } from 'lucide-react';
 import Image from 'next/image';
 
-import dashboardPreview from '@/src/app/assets/dashboard-preview.png';
-import testimonial1 from '@/src/app/assets/testimonial-1.jpg';
-import testimonial2 from '@/src/app/assets/testimonial-2.jpg';
-import testimonial3 from '@/src/app/assets/testimonial-3.jpg';
+import dashboardPreview from '@/app/assets/dashboard-preview.png';
+import testimonial1 from '@/app/assets/testimonial-1.jpg';
+import testimonial2 from '@/app/assets/testimonial-2.jpg';
+import testimonial3 from '@/app/assets/testimonial-3.jpg';
 
 const CTABanner = () => {
   return (
