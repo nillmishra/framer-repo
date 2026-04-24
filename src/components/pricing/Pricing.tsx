@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Sparkles } from 'lucide-react';
-import Header from '@/src/components/shared/Header';
-import Footer from '@/src/components/shared/Footer';
+import Header from '@/components/shared/Header';
+import Footer from '@/components/shared/Footer';
 
 const plans = [
   {
@@ -55,11 +55,11 @@ const Pricing = () => {
   const [billing, setBilling] = useState<'monthly' | 'yearly'>('monthly');
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#053f30] via-[#064c38] to-[#39d353]">
-      {/* Top glow */}
-      {/* <div className="absolute inset-x-0 top-[-300px] h-[600px] bg-[radial-gradient(circle,rgba(124,255,78,0.18),transparent_65%)]" /> */}
-      {/* Bottom wash */}
-      <div className="absolute inset-x-0 bottom-[-200px] h-[500px] bg-[radial-gradient(circle,rgba(124,255,78,0.35),transparent_70%)]" />
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-blue-50 via-white to-blue-50">
+      {/* Accent glow */}
+      <div className="absolute inset-x-0 top-[-300px] h-[600px] bg-[radial-gradient(circle,rgba(59,130,246,0.15),transparent_65%)]" />
+      {/* Bottom blue wash */}
+      <div className="absolute inset-x-0 bottom-[-200px] h-[500px] bg-[radial-gradient(circle,rgba(59,130,246,0.1),transparent_70%)]" />
 
       <Header />
 
@@ -114,55 +114,57 @@ const Pricing = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className={`relative rounded-3xl border border-white/15 bg-white/5 backdrop-blur-xl p-8 ${
-                  plan.popular ? 'ring-2 ring-[#7CFF4E]' : ''
+                className={`relative rounded-3xl border p-8 transition-all ${
+                  plan.popular
+                    ? 'border-blue-600 bg-gradient-to-br from-blue-50 to-blue-50 ring-2 ring-blue-600 shadow-lg'
+                    : 'border-blue-100 bg-white hover:border-blue-300'
                 }`}
               >
                 {plan.popular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#7CFF4E] px-3 py-1 text-xs font-semibold text-[#053f30]">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
                     most popular
                   </span>
                 )}
 
-                <h3 className="text-2xl font-serif font-bold text-white mb-2">
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">
                   {plan.name}
                 </h3>
-                <p className="text-sm text-white/60 mb-6">
+                <p className="text-sm text-gray-600 mb-6">
                   {plan.description}
                 </p>
 
                 <div className="mb-1">
-                  <span className="text-4xl font-bold text-[#7CFF4E]">
+                  <span className="text-4xl font-bold text-blue-600">
                     ${plan.price}
                   </span>
-                  <span className="text-white/60 text-sm"> /mo</span>
+                  <span className="text-gray-500 text-sm"> /mo</span>
                 </div>
 
-                <p className="text-xs text-white/50 mb-6">
+                <p className="text-xs text-gray-500 mb-6">
                   pause or cancel anytime
                 </p>
 
                 <button
                   className={`w-full rounded-full py-3 text-sm font-semibold transition ${
                     plan.popular
-                      ? 'bg-[#7CFF4E] text-[#053f30]'
-                      : 'bg-white text-[#053f30]'
+                      ? 'bg-blue-600 text-white hover:bg-blue-700'
+                      : 'bg-white text-blue-600 hover:bg-blue-50'
                   }`}
                 >
                   {plan.cta}
                 </button>
 
                 <div className="mt-8">
-                  <p className="text-sm font-semibold text-white mb-4">
+                  <p className="text-sm font-semibold text-slate-900 mb-4">
                     Included
                   </p>
                   <ul className="space-y-3">
                     {plan.features.map((f) => (
                       <li
                         key={f}
-                        className="flex items-center gap-3 text-sm text-white/80"
+                        className="flex items-center gap-3 text-sm text-gray-700"
                       >
-                        <Check className="w-4 h-4 text-[#7CFF4E]" />
+                        <Check className="w-4 h-4 text-blue-600" />
                         {f}
                       </li>
                     ))}
@@ -177,21 +179,21 @@ const Pricing = () => {
       {/* CUSTOM CTA */}
       <section className="relative z-10 pb-32">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto rounded-3xl bg-white/10 backdrop-blur-xl border border-white/15 p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="max-w-6xl mx-auto rounded-3xl bg-gradient-to-r from-blue-50 to-blue-50 border border-blue-200 p-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-start gap-4">
-              <Sparkles className="w-6 h-6 text-[#7CFF4E]" />
+              <Sparkles className="w-6 h-6 text-blue-600" />
               <div>
-                <h3 className="text-xl font-serif font-bold text-white mb-2">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
                   Interested In A More Customized Solution?
                 </h3>
-                <p className="text-white/60 text-sm">
+                <p className="text-gray-600 text-sm">
                   Call our team and explain your project, wants and needs.
-                  We’ll create a custom pricing solution for you.
+                  We'll create a custom pricing solution for you.
                 </p>
               </div>
             </div>
 
-            <button className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#053f30]">
+            <button className="rounded-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 text-sm font-semibold">
               Call our team
             </button>
           </div>

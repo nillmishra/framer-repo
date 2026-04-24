@@ -18,7 +18,7 @@ import {
   Globe,
   Wallet
 } from 'lucide-react';
-import pixelPerfectMedia from '@/src/app/assets/pixel-perfect-media.jpg';
+import pixelPerfectMedia from '@/app/assets/pixel-perfect-media.jpg';
 import Image from 'next/image';
 
 const Features = () => {

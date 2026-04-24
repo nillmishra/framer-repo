@@ -7,8 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import Header from '@/src/components/shared/Header';
-import Footer from '@/src/components/shared/Footer';
+import Header from '@/components/shared/Header';
+import Footer from '@/components/shared/Footer';
 import { toast } from 'sonner';
 import FAQ from '../home/FAQ';
 
@@ -51,12 +51,12 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-[#053f30] via-[#064c38] to-[#39d353]">
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-blue-50 via-white to-blue-50">
   {/* Top soft glow */}
-  {/* <div className="absolute inset-x-0 top-[-200px] h-[500px] bg-[radial-gradient(circle,rgba(124,255,78,0.15),transparent_65%)]" /> */}
+  <div className="absolute inset-x-0 top-[-300px] h-[600px] bg-[radial-gradient(circle,rgba(59,130,246,0.15),transparent_65%)]" />
 
-  {/* Bottom green wash */}
-  <div className="absolute inset-x-0 bottom-[-150px] h-[400px] bg-[radial-gradient(circle,rgba(124,255,78,0.35),transparent_70%)]" />
+  {/* Bottom blue wash */}
+  <div className="absolute inset-x-0 bottom-[-200px] h-[500px] bg-[radial-gradient(circle,rgba(59,130,246,0.1),transparent_70%)]" />
 
   <Header />
       

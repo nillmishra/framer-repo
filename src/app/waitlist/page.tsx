@@ -3,14 +3,14 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Plane, Sparkles, MapPin } from 'lucide-react';
-import Header from '@/src/components/shared/Header';
-import Footer from '@/src/components/shared/Footer';
+import Header from '@/components/shared/Header';
+import Footer from '@/components/shared/Footer';
 import Image from 'next/image';
 import { toast } from 'sonner';
 
-import testimonial1 from '@/src/app/assets/testimonial-1.jpg';
-import testimonial2 from '@/src/app/assets/testimonial-2.jpg';
-import testimonial3 from '@/src/app/assets/testimonial-3.jpg';
+import testimonial1 from '@/app/assets/testimonial-1.jpg';
+import testimonial2 from '@/app/assets/testimonial-2.jpg';
+import testimonial3 from '@/app/assets/testimonial-3.jpg';
 
 const Waitlist = () => {
   const [email, setEmail] = useState('');

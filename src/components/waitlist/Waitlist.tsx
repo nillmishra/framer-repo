@@ -3,15 +3,15 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
-import Header from '@/src/components/shared/Header';
-import Footer from '@/src/components/shared/Footer';
+import Header from '@/components/shared/Header';
+import Footer from '@/components/shared/Footer';
 import Image from 'next/image';
 import { toast } from 'sonner';
 
-import dashboardPreview from '@/src/app/assets/dashboard-preview.png';
-import testimonial1 from '@/src/app/assets/testimonial-1.jpg';
-import testimonial2 from '@/src/app/assets/testimonial-2.jpg';
-import testimonial3 from '@/src/app/assets/testimonial-3.jpg';
+import dashboardPreview from '@/app/assets/dashboard-preview.png';
+import testimonial1 from '@/app/assets/testimonial-1.jpg';
+import testimonial2 from '@/app/assets/testimonial-2.jpg';
+import testimonial3 from '@/app/assets/testimonial-3.jpg';
 
 const Waitlist = () => {
   const [email, setEmail] = useState('');
@@ -64,11 +64,11 @@ const Waitlist = () => {
     countdown.seconds === 0;
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#053f30] via-[#064c38] to-[#39d353]">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-blue-50 via-white to-blue-50">
       {/* Top glow */}
-      {/* <div className="absolute inset-x-0 top-[-300px] h-[600px] bg-[radial-gradient(circle,rgba(124,255,78,0.18),transparent_65%)]" /> */}
+      <div className="absolute inset-x-0 top-[-300px] h-[600px] bg-[radial-gradient(circle,rgba(59,130,246,0.15),transparent_65%)]" />
       {/* Bottom wash */}
-      <div className="absolute inset-x-0 bottom-[-200px] h-[500px] bg-[radial-gradient(circle,rgba(124,255,78,0.35),transparent_70%)]" />
+      <div className="absolute inset-x-0 bottom-[-200px] h-[500px] bg-[radial-gradient(circle,rgba(59,130,246,0.1),transparent_70%)]" />
 
       <Header />
 

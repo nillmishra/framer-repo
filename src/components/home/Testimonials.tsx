@@ -3,9 +3,9 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Star, Quote, Sparkles, Plane } from 'lucide-react';
-import testimonial1 from '@/src/app/assets/testimonial-1.jpg';
-import testimonial2 from '@/src/app/assets/testimonial-2.jpg';
-import testimonial3 from '@/src/app/assets/testimonial-3.jpg';
+import testimonial1 from '@/app/assets/testimonial-1.jpg';
+import testimonial2 from '@/app/assets/testimonial-2.jpg';
+import testimonial3 from '@/app/assets/testimonial-3.jpg';
 import Image from 'next/image';
 
 const testimonials = [

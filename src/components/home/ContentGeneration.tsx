@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { CheckCircle, Sparkles, TrendingUp, Plane, Building2, Train, Target, Shield, Clock } from 'lucide-react';
-import phoneMockup1 from '@/src/app/assets/phone-mockup-1.png';
-import phoneMockup2 from '@/src/app/assets/phone-mockup-2.png';
+import phoneMockup1 from '@/app/assets/phone-mockup-1.png';
+import phoneMockup2 from '@/app/assets/phone-mockup-2.png';
 import Image from 'next/image';
 
 const ContentGeneration = () => {

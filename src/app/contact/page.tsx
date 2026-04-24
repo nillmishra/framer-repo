@@ -7,10 +7,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import Header from '@/src/components/shared/Header';
-import Footer from '@/src/components/shared/Footer';
+import Header from '@/components/shared/Header';
+import Footer from '@/components/shared/Footer';
 import { toast } from 'sonner';
-import FAQ from '@/src/components/home/FAQ';
+import FAQ from '@/components/home/FAQ';
 
 const subjects = [
   'Pricing',
