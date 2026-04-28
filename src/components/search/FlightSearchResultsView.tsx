@@ -73,6 +73,7 @@ const defaultFlightFilters: FlightFilters = {
 
 interface FlightSearchResultsViewProps {
   flightResults: FlightResult[];
+  onBookFlight?: (flight: FlightResult) => void;
 }
 
 // ── Airline logo placeholder ──────────────────────────────────
@@ -107,7 +108,7 @@ function StopDots({ stops }: { stops: 0 | 1 | 2 }) {
 }
 
 // ── Flight Card ───────────────────────────────────────────────
-function FlightCard({ flight }: { flight: FlightResult }) {
+function FlightCard({ flight, onBookFlight }: { flight: FlightResult; onBookFlight?: (flight: FlightResult) => void }) {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -217,7 +218,10 @@ function FlightCard({ flight }: { flight: FlightResult }) {
             </div>
 
             {/* CTA */}
-            <button className="w-full md:w-auto bg-gradient-button hover:brightness-105 active:scale-95 text-white font-bold text-sm px-6 py-2.5 rounded-xl transition-all shadow-md shadow-blue-200 whitespace-nowrap flex items-center gap-1.5 justify-center">
+            <button
+              onClick={() => onBookFlight?.(flight)}
+              className="w-full md:w-auto bg-gradient-button hover:brightness-105 active:scale-95 text-white font-bold text-sm px-6 py-2.5 rounded-xl transition-all shadow-md shadow-blue-200 whitespace-nowrap flex items-center gap-1.5 justify-center"
+            >
               Book Flight <ChevronRight className="w-4 h-4" />
             </button>
           </div>
@@ -446,7 +450,7 @@ function toMinutes(dur: string) {
 }
 
 // ── Main export ───────────────────────────────────────────────
-export default function FlightSearchResultsView({ flightResults }: FlightSearchResultsViewProps) {
+export default function FlightSearchResultsView({ flightResults, onBookFlight }: FlightSearchResultsViewProps) {
   const [showFilters, setShowFilters] = useState(false);
   const [sortBy, setSortBy] = useState<'rating' | 'cheapest' | 'fastest' | 'saving'>('saving');
   const [filters, setFilters] = useState<FlightFilters>(defaultFlightFilters);
@@ -565,7 +569,7 @@ export default function FlightSearchResultsView({ flightResults }: FlightSearchR
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.04 }}
               >
-                <FlightCard flight={flight} />
+                <FlightCard flight={flight} onBookFlight={onBookFlight} />
               </motion.div>
             ))}
           </div>
