@@ -7,6 +7,7 @@ import { MapPin, Calendar, ArrowLeftRight, Search, ArrowLeft, Bus, Plane, Chevro
 import Header from '@/components/shared/Header';
 import BusSearchResultsView, { type BusResult } from '@/components/search/BusSearchResultsView';
 import FlightSearchResultsView, { type FlightResult } from '@/components/search/FlightSearchResultsView';
+import FlightBookingModal from '@/components/search/FlightBookingModal';
 
 const busResults: BusResult[] = [
   {
@@ -598,6 +599,7 @@ function SearchResultsContent() {
   const [toCity, setToCity] = useState(urlTo || '');
   const [date, setDate] = useState(urlDate || new Date().toISOString().split('T')[0]);
   const [isBusModalOpen, setIsBusModalOpen] = useState(false);
+  const [selectedFlight, setSelectedFlight] = useState<FlightResult | null>(null);
 
   useEffect(() => {
     setFromCity(urlFrom || '');
@@ -605,7 +607,7 @@ function SearchResultsContent() {
     setDate(urlDate || new Date().toISOString().split('T')[0]);
   }, [currentType, urlFrom, urlTo, urlDate]);
 
-  const hideTopChrome = travelType === 'bus' && isBusModalOpen;
+  const hideTopChrome = (travelType === 'bus' && isBusModalOpen) || !!selectedFlight;
 
   const getTodayDate = () => new Date().toISOString().split('T')[0];
   const getTomorrowDate = () => {
@@ -759,7 +761,10 @@ function SearchResultsContent() {
           </div>
 
           {travelType === 'flights' ? (
-            <FlightSearchResultsView flightResults={dynamicFlightResults} />
+            <FlightSearchResultsView
+              flightResults={dynamicFlightResults}
+              onBookFlight={(flight) => setSelectedFlight(flight)}
+            />
           ) : (
             <BusSearchResultsView
               busResults={dynamicBusResults}
@@ -771,6 +776,16 @@ function SearchResultsContent() {
           )}
         </div>
       </div>
+
+      {selectedFlight && (
+        <FlightBookingModal
+          flight={selectedFlight}
+          fromCity={fromName}
+          toCity={toName}
+          travelDate={displayDate}
+          onClose={() => setSelectedFlight(null)}
+        />
+      )}
     </>
   );
 }
